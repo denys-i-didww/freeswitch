@@ -134,7 +134,7 @@ def main():
                      ' && make -j2 core && make -j2 -C ' + str(MODULE))
             run(worktree, ["sh", "-c", build], report, "original-build")
             red_check, red_junit, red_errors = results(worktree, report, "original")
-            if red_check != 2 or red_junit <= 0 or red_errors != EXPECTED_ERRORS:
+            if red_check != 2 or red_junit != len(EXPECTED_ERRORS) or red_errors != EXPECTED_ERRORS:
                 raise RuntimeError("Original code did not produce exactly the expected assertion failures")
             green_check, green_junit, green_errors = results(root, report, "fixed")
             if green_check or green_junit or green_errors:
