@@ -55,9 +55,7 @@ switch_status_t mod_smpp_interface_chat_send(switch_event_t *event)
 		return SWITCH_STATUS_GENERR;
 	}
 
-	mod_smpp_gateway_send_message(gateway, event);
-
-	return SWITCH_STATUS_SUCCESS;
+	return mod_smpp_gateway_send_message(gateway, event);
 }
 
 /* static switch_status_t name (switch_event_t *message, const char *data) */
@@ -72,8 +70,7 @@ SWITCH_STANDARD_CHAT_APP(mod_smpp_chat_send_function)
 		return SWITCH_STATUS_GENERR;
 	}
 
-	mod_smpp_gateway_send_message(gateway, message);
-	return SWITCH_STATUS_SUCCESS;
+	return mod_smpp_gateway_send_message(gateway, message);
 }
 
 /* static void name (switch_core_session_t *session, const char *data) */
